@@ -1,0 +1,12 @@
+[Unit]
+Description=JACK Server
+After=sound.target
+
+[Service]
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+Environment=JACK_NO_AUDIO_RESERVATION=1
+ExecStart=/usr/bin/jackd -v -t 2000 -P 75 -d alsa -d hw:pisound -r 48000 -p 256 -n 2 -X seq -s -S
+
+[Install]
+WantedBy=multi-user.target
