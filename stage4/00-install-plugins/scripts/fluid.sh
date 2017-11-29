@@ -1,5 +1,5 @@
 PLUGIN=fluidsynth
-GIT_URI=https://git.code.sf.net/p/fluidsynth/code-git
+GIT_URI="https://github.com/BlokasLabs/${PLUGIN} -b v1.1.6"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
 
 rm -rf ${TMP_DIR}
@@ -23,7 +23,7 @@ popd
 rm -r ${TMP_DIR}
 
 PLUGIN=FluidPlug
-GIT_URI=https://github.com/falkTX/FluidPlug.git
+GIT_URI=https://github.com/BlokasLabs/${PLUGIN}
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
 git clone --depth 1 ${GIT_URI} ${TMP_DIR}
 
@@ -36,18 +36,16 @@ unset PKG_CONFIG_LIBDIR
 unset PKG_CONFIG_SYSROOT_DIR
 
 on_chroot << EOF
-	echo INSTALLING
-	pkg-config --libs fluidsynth --debug
 	cd /tmp/${PLUGIN}
-	make install
+	make install PREFIX=${LV2_DIR} SUFFIX=
 EOF
 
-rm -rf $LV2_DIR/Black_Pearl_4A.lv2
-rm -rf $LV2_DIR/Black_Pearl_4B.lv2
-rm -rf $LV2_DIR/Black_Pearl_5.lv2
-rm -rf $LV2_DIR/AVL_Drumkits_Perc.lv2
-rm -rf $LV2_DIR/Red_Zeppelin_4.lv2
-rm -rf $LV2_DIR/Red_Zeppelin_5.lv2
+rm -rf $LV2_ABS_DIR/Black_Pearl_4A.lv2
+rm -rf $LV2_ABS_DIR/Black_Pearl_4B.lv2
+rm -rf $LV2_ABS_DIR/Black_Pearl_5.lv2
+rm -rf $LV2_ABS_DIR/AVL_Drumkits_Perc.lv2
+rm -rf $LV2_ABS_DIR/Red_Zeppelin_4.lv2
+rm -rf $LV2_ABS_DIR/Red_Zeppelin_5.lv2
 
 popd
 

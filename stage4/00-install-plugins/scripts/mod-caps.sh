@@ -4,13 +4,15 @@ TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
 
 rm -rf ${TMP_DIR}
 git clone --depth 1 ${GIT_URI} ${TMP_DIR}
-make -j4 -C ${TMP_DIR}
 
-on_chroot << EOF
-	cd /tmp/${PLUGIN}
-	make install
-	rm -r /usr/local/lib/lv2/mod-caps-Eq4p.lv2 /usr/local/lib/lv2/mod-caps-EqFA4p.lv2
-EOF
+pushd ${TMP_DIR}
+
+make -j4
+
+make install LV2_DEST=${LV2_ABS_DIR}
+rm -r ${LV2_ABS_DIR}/mod-caps-Eq4p.lv2 ${LV2_ABS_DIR}/mos-caps-EqFA4p.lv2
+
+popd
 
 rm -r ${TMP_DIR}
 
