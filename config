@@ -1,3 +1,4 @@
 IMG_NAME='MODEP'
 MAIN_USER='modep'
 MAIN_PASSWORD='blokaslabs'
+HOSTNAME='modep'

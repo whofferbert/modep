@@ -144,6 +144,7 @@ export APT_PROXY
 
 export MAIN_USER
 export MAIN_PASSWORD
+export HOSTNAME
 
 export STAGE
 export STAGE_DIR
