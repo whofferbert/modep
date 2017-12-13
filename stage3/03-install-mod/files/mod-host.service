@@ -6,7 +6,8 @@ Requires=jack.service
 [Service]
 Type=forking
 Environment=HOME=/root
-Environment=LV2_PATH=/usr/local/modep/lv2
+# [placeholder] gets replaced in 03-run.sh script.
+Environment=LV2_PATH=[placeholder]
 WorkingDirectory=/root
 ExecStart=/usr/local/bin/mod-host
 Restart=always

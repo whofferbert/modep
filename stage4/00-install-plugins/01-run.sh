@@ -3,9 +3,6 @@ export CXX=arm-linux-gnueabihf-g++
 export LD=arm-linux-gnueabihf-ld
 export STRIP=arm-linux-gnueabihf-strip
 
-export LV2_DIR=/usr/local/modep/lv2
-export LV2_ABS_DIR=${ROOTFS_DIR}/${LV2_DIR}
-
 echo "installing MOD CAPS suite..."
 scripts/mod-caps.sh
 

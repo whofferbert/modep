@@ -85,6 +85,7 @@ run_stage(){
 	unmount ${WORK_DIR}/${STAGE}
 	STAGE_WORK_DIR=${WORK_DIR}/${STAGE}
 	ROOTFS_DIR=${STAGE_WORK_DIR}/rootfs
+	LV2_ABS_DIR=${ROOTFS_DIR}/${LV2_DIR}
 	if [ -f ${STAGE_DIR}/EXPORT_IMAGE ]; then
 		EXPORT_DIRS="${EXPORT_DIRS} ${STAGE_DIR}"
 	fi
@@ -158,6 +159,9 @@ export NOOBS_NAME
 export NOOBS_DESCRIPTION
 export EXPORT_DIR
 export EXPORT_ROOTFS_DIR
+
+export LV2_DIR
+export LV2_ABS_DIR
 
 export QUILT_PATCHES
 export QUILT_NO_DIFF_INDEX=1
