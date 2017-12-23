@@ -69,6 +69,14 @@ unmount_image(){
 export -f unmount_image
 
 on_chroot() {
+	TMP_PKG_CONFIG_DIR=${PKG_CONFIG_DIR}
+	TMP_PKG_CONFIG_LIBDIR=${PKG_CONFIG_LIBDIR}
+	TMP_PKG_CONFIG_SYSROOT_DIR=${PKG_CONFIG_SYSROOT_DIR}
+
+	unset PKG_CONFIG_DIR
+	unset PKG_CONFIG_LIBDIR
+	unset PKG_CONFIG_SYSROOT_DIR
+
 	if ! mount | grep -q "$(realpath "${ROOTFS_DIR}"/proc)"; then
 		mount -t proc proc "${ROOTFS_DIR}/proc"
 	fi
@@ -86,7 +94,12 @@ on_chroot() {
 	fi
 
 	capsh --drop=cap_setfcap "--chroot=${ROOTFS_DIR}/" -- "$@"
+
+	export PKG_CONFIG_DIR=${TMP_PKG_CONFIG_DIR}
+	export PKG_CONFIG_LIBDIR=${TMP_PKG_CONFIG_LIBDIR}
+	export TMP_PKG_CONFIG_SYSROOT_DIR=${TMP_PKG_CONFIG_SYSROOT_DIR}
 }
+
 export -f on_chroot
 
 update_issue() {

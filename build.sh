@@ -77,6 +77,23 @@ EOF
 	log "End ${SUB_STAGE_DIR}"
 }
 
+generate_cmake_toolchain(){
+	CMAKE_TOOLCHAIN=$(mktemp /tmp/cmake.toolchain.XXXXXXX)
+	cat << EOT > $CMAKE_TOOLCHAIN
+		SET(CMAKE_SYSTEM_NAME Linux)
+		SET(CMAKE_SYSTEM_VERSION 1)
+
+		SET(CMAKE_C_COMPILER   /usr/bin/arm-linux-gnueabihf-gcc)
+		SET(CMAKE_CXX_COMPILER /usr/bin/arm-linux-gnueabihf-g++)
+
+		SET(CMAKE_SYSROOT ${ROOTFS_DIR})
+
+		SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+		SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+		SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+EOT
+	export CMAKE_TOOLCHAIN
+}
 
 run_stage(){
 	log "Begin ${STAGE_DIR}"
@@ -86,6 +103,10 @@ run_stage(){
 	STAGE_WORK_DIR=${WORK_DIR}/${STAGE}
 	ROOTFS_DIR=${STAGE_WORK_DIR}/rootfs
 	LV2_ABS_DIR=${ROOTFS_DIR}/${LV2_DIR}
+	PKG_CONFIG_DIR=
+	PKG_CONFIG_LIBDIR=${ROOTFS_DIR}/usr/local/lib/pkgconfig:${ROOTFS_DIR}/usr/lib/pkgconfig:${ROOTFS_DIR}/usr/lib/arm-linux-gnueabihf/pkgconfig:${ROOTFS_DIR}/usr/share/pkgconfig
+	PKG_CONFIG_SYSROOT_DIR=${ROOTFS_DIR}
+	generate_cmake_toolchain
 	if [ -f ${STAGE_DIR}/EXPORT_IMAGE ]; then
 		EXPORT_DIRS="${EXPORT_DIRS} ${STAGE_DIR}"
 	fi
@@ -162,6 +183,10 @@ export EXPORT_ROOTFS_DIR
 
 export LV2_DIR
 export LV2_ABS_DIR
+
+export PKG_CONFIG_DIR
+export PKG_CONFIG_LIBDIR
+export PKG_CONFIG_SYSROOT_DIR
 
 export QUILT_PATCHES
 export QUILT_NO_DIFF_INDEX=1

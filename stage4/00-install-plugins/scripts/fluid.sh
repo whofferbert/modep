@@ -6,10 +6,6 @@ rm -rf ${TMP_DIR}
 git clone --depth 1 ${GIT_URI} ${TMP_DIR}
 pushd ${TMP_DIR}/fluidsynth
 
-export PKG_CONFIG_DIR=
-export PKG_CONFIG_LIBDIR=${ROOTFS_DIR}/usr/local/lib/pkgconfig:${ROOTFS_DIR}/usr/lib/pkgconfig:${ROOTFS_DIR}/usr/lib/arm-linux-gnueabihf/pkgconfig:${ROOTFS_DIR}/usr/share/pkgconfig
-export PKG_CONFIG_SYSROOT_DIR=${ROOTFS_DIR}
-
 sed -i '1s/^/m4_pattern_allow([AC_LIB_PROG_LD_GNU])\n/' configure.ac
 sed -i -- 's/AM_INIT_AUTOMAKE(fluidsynth, \$FLUIDSYNTH_VERSION)/AM_INIT_AUTOMAKE(fluidsynth, \$FLUIDSYNTH_VERSION)\nAC_DEFINE(DEFAULT_SOUNDFONT, "share\/soundfonts\/default.sf2", \[Default soundfont\])/' configure.ac
 ./autogen.sh
@@ -30,10 +26,6 @@ git clone --depth 1 ${GIT_URI} ${TMP_DIR}
 pushd ${TMP_DIR}
 
 make -j4 NOOPT=true
-
-unset PKG_CONFIG_DIR
-unset PKG_CONFIG_LIBDIR
-unset PKG_CONFIG_SYSROOT_DIR
 
 on_chroot << EOF
 	cd /tmp/${PLUGIN}
