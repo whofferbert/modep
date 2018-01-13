@@ -32,12 +32,12 @@ on_chroot << EOF
 	make install PREFIX=${LV2_DIR} SUFFIX=
 EOF
 
-rm -rf $LV2_ABS_DIR/Black_Pearl_4A.lv2
-rm -rf $LV2_ABS_DIR/Black_Pearl_4B.lv2
-rm -rf $LV2_ABS_DIR/Black_Pearl_5.lv2
-rm -rf $LV2_ABS_DIR/AVL_Drumkits_Perc.lv2
-rm -rf $LV2_ABS_DIR/Red_Zeppelin_4.lv2
-rm -rf $LV2_ABS_DIR/Red_Zeppelin_5.lv2
+#rm -rf $LV2_ABS_DIR/Black_Pearl_4A.lv2
+#rm -rf $LV2_ABS_DIR/Black_Pearl_4B.lv2
+#rm -rf $LV2_ABS_DIR/Black_Pearl_5.lv2
+#rm -rf $LV2_ABS_DIR/AVL_Drumkits_Perc.lv2
+#rm -rf $LV2_ABS_DIR/Red_Zeppelin_4.lv2
+#rm -rf $LV2_ABS_DIR/Red_Zeppelin_5.lv2
 
 popd
 
