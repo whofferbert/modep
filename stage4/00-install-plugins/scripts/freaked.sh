@@ -10,8 +10,8 @@ pushd ${TMP_DIR}
 make NOOPT=true -j4
 make install PREFIX=${LV2_ABS_DIR} SUFFIX=
 
-rm -rf $LV2_ABS_DIR/Freakclip.lv2
-rm -rf $LV2_ABS_DIR/Granulator.lv2
+#rm -rf $LV2_ABS_DIR/Freakclip.lv2
+#rm -rf $LV2_ABS_DIR/Granulator.lv2
 
 popd
 
