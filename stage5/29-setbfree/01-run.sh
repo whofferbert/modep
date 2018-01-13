@@ -17,7 +17,9 @@ export lv2dir=${LV2_DIR}
 export OPTIMIZATIONS="-ffast-math -fomit-frame-pointer -O3 -fno-finite-math-only"
 
 mkdir -p ${LV2_ABS_DIR}/b_whirl_xt
+mkdir -p ${LV2_ABS_DIR}/b_whirl_mod
 cp ${LV2_ABS_DIR}/b_whirl/b_whirl.so ${LV2_ABS_DIR}/b_whirl_xt/
+cp ${LV2_ABS_DIR}/b_whirl/b_whirl.so ${LV2_ABS_DIR}/b_whirl_mod/
 
 make -j4
 make install 
