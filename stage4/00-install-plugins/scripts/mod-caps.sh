@@ -10,7 +10,7 @@ pushd ${TMP_DIR}
 make -j4
 
 make install LV2_DEST=${LV2_ABS_DIR}
-rm -r ${LV2_ABS_DIR}/mod-caps-Eq4p.lv2 ${LV2_ABS_DIR}/mos-caps-EqFA4p.lv2
+rm -r ${LV2_ABS_DIR}/mod-caps-Eq4p.lv2 ${LV2_ABS_DIR}/mod-caps-EqFA4p.lv2
 
 popd
 
