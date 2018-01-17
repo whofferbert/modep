@@ -15,5 +15,11 @@ pushd ${TMP_DIR}/trunk
 ./waf -j1 install
 popd
 
+PLUGINS_WITHOUT_GUI="gx_aclipper.lv2 gx_alembic.lv2 gx_bmp.lv2 gx_bossds1.lv2 gx_mxrdist.lv2 gx_slowgear.lv2 gxtape.lv2 gxtape_st.lv2 gx_vibe.lv2 gx_w20.lv2 gxtuner.lv2"
+
+for i in ${PLUGINS_WITHOUT_GUI}; do
+	rm -r ${LV2_ABS_DIR}/$i
+done
+
 rm -r ${TMP_DIR}
 
