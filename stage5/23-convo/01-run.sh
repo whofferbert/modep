@@ -1,3 +1,6 @@
+# Skip this plugin, there is no GUI available at the moment.
+exit
+
 PLUGIN=convo.lv2
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN}"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
