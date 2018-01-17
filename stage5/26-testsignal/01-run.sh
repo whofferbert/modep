@@ -1,3 +1,4 @@
+exit # No gui.
 PLUGIN=testsignal.lv2
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN}"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
