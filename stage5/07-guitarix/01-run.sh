@@ -21,6 +21,9 @@ for i in ${PLUGINS_WITHOUT_GUI}; do
 	rm -r ${LV2_ABS_DIR}/$i
 done
 
+# Does not work.
+rm -rf ${LV2_ABS_DIR}/gx_mbcompressor.lv2
+
 # Remove modgui folders so that mod-lv2-data gets copied over.
 rm -r ${LV2_ABS_DIR}/gxts9.lv2/modgui
 rm -r ${LV2_ABS_DIR}/gxmetal_head.lv2/modgui
