@@ -10,8 +10,9 @@ pushd ${TMP_DIR}
 make NOOPT=true -j4
 make install PREFIX=${LV2_ABS_DIR} SUFFIX=
 
-#rm -rf $LV2_ABS_DIR/Freakclip.lv2
-#rm -rf $LV2_ABS_DIR/Granulator.lv2
+# Remove modgui folders, so that mod-lv2-data gets copied over in a later step.
+rm -rf $LV2_ABS_DIR/Freakclip.lv2/modgui
+rm -rf $LV2_ABS_DIR/Granulator.lv2/modgui
 
 popd
 

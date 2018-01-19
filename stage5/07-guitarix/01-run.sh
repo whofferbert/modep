@@ -21,5 +21,10 @@ for i in ${PLUGINS_WITHOUT_GUI}; do
 	rm -r ${LV2_ABS_DIR}/$i
 done
 
+# Remove modgui folders so that mod-lv2-data gets copied over.
+rm -r ${LV2_ABS_DIR}/gxts9.lv2/modgui
+rm -r ${LV2_ABS_DIR}/gxmetal_head.lv2/modgui
+rm -r ${LV2_ABS_DIR}/gxmetal_amp.lv2/modgui
+
 rm -r ${TMP_DIR}
 
