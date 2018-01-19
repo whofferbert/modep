@@ -10,5 +10,8 @@ pushd ${TMP_DIR}
 ./waf -j1 install
 popd
 
+# Force copying of GUI from mod-lv2-data.
+rm -r ${LV2_ABS_DIR}/mod-mda-Combo.lv2/modgui
+
 rm -r ${TMP_DIR}
 
