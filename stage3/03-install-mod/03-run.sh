@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 # Set up startup for mod
 
 mkdir -p ${ROOTFS_DIR}/usr/lib/systemd/system

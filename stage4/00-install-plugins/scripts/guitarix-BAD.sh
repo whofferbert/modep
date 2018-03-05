@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -e
 
 # Copyright (C) 2017 Vilniaus Blokas UAB, http://blokas.io/
 #

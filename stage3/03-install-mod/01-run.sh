@@ -1,8 +1,11 @@
+#!/bin/bash -e
+
 # Install mod-ui
 
 MODEP_DIR=${ROOTFS_DIR}/usr/local/modep
 
 mkdir -p ${MODEP_DIR}
+rm -rf ${MODEP_DIR}/mod-ui
 git clone https://github.com/BlokasLabs/mod-ui.git ${MODEP_DIR}/mod-ui
 curl -o ${ROOTFS_DIR}/tmp/phantomjs_2.1.1_armhf.deb -sSL https://github.com/fg2it/phantomjs-on-raspberry/releases/download/v2.1.1-wheezy-jessie-armv6/phantomjs_2.1.1_armhf.deb
 

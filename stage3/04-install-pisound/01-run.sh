@@ -1,3 +1,6 @@
+#!/bin/bash -e
+
+rm -rf ${ROOTFS_DIR}/usr/local/modep/modep-btn-scripts
 git clone https://github.com/BlokasLabs/modep-btn-scripts.git ${ROOTFS_DIR}/usr/local/modep/modep-btn-scripts
 
 cp files/pisound.conf ${ROOTFS_DIR}/etc/
