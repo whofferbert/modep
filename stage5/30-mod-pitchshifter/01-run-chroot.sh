@@ -2,7 +2,7 @@
 
 PLUGIN=mod-pitchshifter
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN}"
-TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
+TMP_DIR=/tmp/${PLUGIN}
 
 rm -rf ${TMP_DIR}
 git clone ${GIT_URI} ${TMP_DIR}
@@ -14,12 +14,8 @@ export LD=arm-linux-gnueabihf-gcc
 export STRIP=arm-linux-gnueabihf-strip
 
 export MOD=1
-export DESTDIR=${ROOTFS_DIR}
 export INSTALL_PATH=${LV2_DIR}
 export NOOPT=true
-
-export CXXFLAGS="--sysroot=${ROOTFS_DIR}"
-export LDFLAGS="--sysroot=${ROOTFS_DIR}"
 
 make -j4
 make install 

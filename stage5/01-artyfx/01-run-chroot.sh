@@ -2,7 +2,7 @@
 
 PLUGIN=artyfx
 GIT_URI="https://github.com/BlokasLabs/openAV-ArtyFX"
-TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
+TMP_DIR=/tmp/${PLUGIN}
 
 #unset PKG_CONFIG_DIR
 #unset PKG_CONFIG_LIBDIR
@@ -19,7 +19,7 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN} -DCMAKE_INSTALL_PREFIX=${TMP_
 make -j4
 make install
 
-mv ${TMP_DIR}/install/lib/lv2/${PLUGIN}.lv2 ${LV2_ABS_DIR}/${PLUGIN}.lv2
+mv ${TMP_DIR}/install/lib/lv2/${PLUGIN}.lv2 ${LV2_DIR}/${PLUGIN}.lv2
 
 popd
 

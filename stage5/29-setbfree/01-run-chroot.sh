@@ -2,7 +2,7 @@
 
 PLUGIN=setbfree
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN}"
-TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
+TMP_DIR=/tmp/${PLUGIN}
 
 rm -rf ${TMP_DIR}
 git clone ${GIT_URI} ${TMP_DIR}
@@ -14,14 +14,13 @@ export LD=arm-linux-gnueabihf-gcc
 export STRIP=arm-linux-gnueabihf-strip
 
 export MOD=1
-export DESTDIR=${ROOTFS_DIR}
 export lv2dir=${LV2_DIR}
 export OPTIMIZATIONS="-ffast-math -fomit-frame-pointer -O3 -fno-finite-math-only"
 
-mkdir -p ${LV2_ABS_DIR}/b_whirl_xt
-mkdir -p ${LV2_ABS_DIR}/b_whirl_mod
-cp ${LV2_ABS_DIR}/b_whirl/b_whirl.so ${LV2_ABS_DIR}/b_whirl_xt/
-cp ${LV2_ABS_DIR}/b_whirl/b_whirl.so ${LV2_ABS_DIR}/b_whirl_mod/
+mkdir -p ${LV2_DIR}/b_whirl_xt
+mkdir -p ${LV2_DIR}/b_whirl_mod
+cp ${LV2_DIR}/b_whirl/b_whirl.so ${LV2_DIR}/b_whirl_xt/
+cp ${LV2_DIR}/b_whirl/b_whirl.so ${LV2_DIR}/b_whirl_mod/
 
 make -j4
 make install 
