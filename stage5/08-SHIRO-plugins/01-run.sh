@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=SHIRO-plugins
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN} --recursive"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}

@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=bolliedelay
 GIT_URI="https://github.com/BlokasLabs/bolliedelay.lv2"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}

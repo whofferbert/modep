@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=setBfree
 GIT_URI="https://github.com/BlokasLabs/setBfree"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}

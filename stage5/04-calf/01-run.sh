@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=calf
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN} -b 0.90.0-1"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}

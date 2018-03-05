@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 # Skip this plugin, there is no GUI available at the moment.
 exit
 

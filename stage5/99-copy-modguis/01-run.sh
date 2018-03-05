@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 DATA_DIR=/tmp/mod-lv2-data
 
 git clone --depth 1 https://github.com/BlokasLabs/mod-lv2-data ${DATA_DIR}

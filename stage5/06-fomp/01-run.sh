@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=fomp.lv2
 GIT_URI=https://github.com/BlokasLabs/${PLUGIN}.git
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}

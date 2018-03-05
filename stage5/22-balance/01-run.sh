@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 exit # No gui
 PLUGIN=balance.lv2
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN}"

@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=infamousPlugins
 GIT_URI="https://github.com/BlokasLabs/${PLUGIN} -b gui"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}

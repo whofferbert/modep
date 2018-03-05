@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=sooperlooper.lv2
 GIT_URI="https://github.com/BlokasLabs/sooperlooper-lv2-plugin"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}

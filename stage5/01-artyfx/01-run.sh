@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 PLUGIN=artyfx
 GIT_URI="https://github.com/BlokasLabs/openAV-ArtyFX"
 TMP_DIR=${ROOTFS_DIR}/tmp/${PLUGIN}
