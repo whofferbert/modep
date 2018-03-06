@@ -26,5 +26,8 @@ for i in `comm -12 <(ls ${DATA_DIR}/plugins | grep -v bad) <(ls ${LV2_ABS_DIR})`
 	fi
 done
 
+ls -1 ${LV2_ABS_DIR}/
+ls -1 ${LV2_ABS_DIR}/ | wc -l
+
 rm -rf ${DATA_DIR}
 
