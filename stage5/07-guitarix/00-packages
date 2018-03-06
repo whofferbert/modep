@@ -6,3 +6,4 @@ libglibmm-2.4-dev
 #libboost-system-dev
 #liblrdf0-dev
 gettext
+intltool
