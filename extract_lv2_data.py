@@ -22,7 +22,7 @@ def get_first_value(p, ns):
 def to_str(s):
 	if s is None:
 		return None
-	return unicode(s).encode('utf-8')
+	return str(str(s).encode('utf-8'))
 
 def to_version(minor, micro):
 	return '%s.%s' % (to_str(minor), to_str(micro))
