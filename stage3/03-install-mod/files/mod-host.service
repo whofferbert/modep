@@ -9,7 +9,7 @@ Environment=HOME=/root
 # [placeholder] gets replaced in 03-run.sh script.
 Environment=LV2_PATH=[placeholder]
 WorkingDirectory=/root
-ExecStart=/usr/local/bin/mod-host
+ExecStart=/usr/local/bin/mod-host -f 5556
 Restart=always
 RestartSec=2
 
