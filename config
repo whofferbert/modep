@@ -3,5 +3,8 @@ MAIN_USER='modep'
 MAIN_PASSWORD='blokaslabs'
 HOSTNAME='modep'
 
+# From https://github.com/BlokasLabs/rpi-kernel-rt/releases
+RT_KERNEL_VERSION=v4.14.59-rt37
+
 LV2_DIR=/usr/local/modep/.lv2
 #LV2_ABS_DIR is automatically exported, to point to .lv2 folder using ROOTFS_DIR for use on the build machine.
