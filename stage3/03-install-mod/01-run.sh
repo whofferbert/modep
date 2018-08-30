@@ -15,3 +15,4 @@ on_chroot << EOF
 	python3 setup.py install --prefix=/usr
 EOF
 
+cp files/prefs.json ${MODEP_DIR}/
