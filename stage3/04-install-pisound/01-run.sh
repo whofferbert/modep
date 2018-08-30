@@ -21,3 +21,20 @@ echo echo modep/modep.yml >> ${ROOTFS_DIR}/usr/local/pisound-ctl/category_list.s
 
 cp files/hostapd.conf ${ROOTFS_DIR}/usr/local/pisound/scripts/pisound-btn/hostapd.conf
 
+# Attempt this two times, first without 'stop on error', then with it enabled.
+# Sometimes simply rerunning the install commands is needed to get over intermittent
+# errors.
+set +e
+for i in 1 2; do
+	on_chroot << EOF
+		pip3 install cython --install-option="--no-cython-compile"
+		pip3 install touchosc2midi
+	EOF
+	set -e
+done
+
+cp files/start_touchosc2midi.sh ${ROOTFS_DIR}/usr/local/modep/
+on_chroot << EOF
+	systemctl enable touchosc
+EOF
+
