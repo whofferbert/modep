@@ -29,7 +29,7 @@ for i in 1 2; do
 	on_chroot << EOF
 		pip3 install cython --install-option="--no-cython-compile"
 		pip3 install touchosc2midi
-	EOF
+EOF
 	set -e
 done
 
