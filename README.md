@@ -1,7 +1,28 @@
+# modep-gen
+
+_Tool used to create the MODEP images, based on [pi-gen](https://github.com/RPi-Distro/pi-gen) which is used to create the Raspbian images_
+
+The top of this document contains `modep-gen` specific information, the contents below [pi-gen](#pi-gen) section are provided as-is for `pi-gen`, most of that information is relevant to `modep-gen`.
+
+## MODEP Stages Overview:
+
+- **Stages 0 - 2** - build a base system for MODEP which is very similar to Raspbian Lite, except for having different default user and hostname
+
+- **Stage 3** - MOD software gets installed, as well as optional software for [Pisound](https://blokas.io/pisound) and other things like realtime kernel
+
+- **Stage 4** - LV2 Plugins get built as it was done in the original MODEP release
+
+- **Stage 5** - More LV2 Plugins get built, structured in a new way
+
+## Generating Locally
+
+This was tested to work fine on Ubuntu Desktop. Before starting the build, make sure to install dependencies using the command given in the below section, then run:
+
+`./build-docker.sh`
+
+It may take a few hours until the build is complete, the results will appear in deploy/ folder.
+
 # pi-gen
-
-_Tool used to create the raspberrypi.org Raspbian images_
-
 
 ## Dependencies
 
@@ -12,7 +33,7 @@ earlier releases of these systems.
 To install the required dependencies for pi-gen you should run:
 
 ```bash
-apt-get install quilt parted realpath qemu-user-static debootstrap zerofree pxz zip \
+apt-get install docker.io quilt parted qemu-user-static debootstrap zerofree pxz zip \
 dosfstools bsdtar libcap2-bin grep rsync xz-utils file git
 ```
 
