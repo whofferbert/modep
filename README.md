@@ -1,7 +1,28 @@
+# modep-gen
+
+_Tool used to create the MODEP images, based on [pi-gen](https://github.com/RPi-Distro/pi-gen) which is used to create the Raspbian images_
+
+The top of this document contains `modep-gen` specific information, the contents below [pi-gen](#pi-gen) section are provided as-is for `pi-gen`, most of that information is relevant to `modep-gen`.
+
+## MODEP Stages Overview:
+
+- **Stages 0 - 2** - build a base system for MODEP which is very similar to Raspbian Lite, except for having different default user and hostname
+
+- **Stage 3** - MOD software gets installed, as well as optional software for [Pisound](https://blokas.io/pisound) and other things like realtime kernel
+
+- **Stage 4** - LV2 Plugins get built as it was done in the original MODEP release
+
+- **Stage 5** - More LV2 Plugins get built, structured in a new way
+
+## Generating Locally
+
+This was tested to work fine on Ubuntu Desktop. Before starting the build, make sure to install dependencies using the command given in the below section, then run:
+
+`./build-docker.sh`
+
+It may take a few hours until the build is complete, the results will appear in deploy/ folder.
+
 # pi-gen
-
-_Tool used to create the raspberrypi.org Raspbian images_
-
 
 ## Dependencies
 
@@ -12,8 +33,8 @@ earlier releases of these systems.
 To install the required dependencies for pi-gen you should run:
 
 ```bash
-apt-get install quilt parted realpath qemu-user-static debootstrap zerofree pxz zip \
-dosfstools bsdtar libcap2-bin grep rsync xz-utils
+apt-get install docker.io quilt parted qemu-user-static debootstrap zerofree pxz zip \
+dosfstools bsdtar libcap2-bin grep rsync xz-utils file git
 ```
 
 The file `depends` contains a list of tools needed.  The format of this
@@ -249,3 +270,26 @@ follows:
  * Once you're happy with the image you can remove the SKIP_IMAGES files and
    export your image to test
 
+# Troubleshooting
+
+## `binfmt_misc`
+
+Linux is able execute binaries from other architectures, meaning that it should be
+possible to make use of `pi-gen` on an x86_64 system, even though it will be running
+ARM binaries. This requires support from the [`binfmt_misc`](https://en.wikipedia.org/wiki/Binfmt_misc)
+kernel module.
+
+You may see the following error:
+
+```
+update-binfmts: warning: Couldn't load the binfmt_misc module.
+```
+
+To resolve this, ensure that the following files are available (install them if necessary):
+
+```
+/lib/modules/$(uname -r)/kernel/fs/binfmt_misc.ko
+/usr/bin/qemu-arm-static
+```
+
+You may also need to load the module by hand - run `modprobe binfmt_misc`.

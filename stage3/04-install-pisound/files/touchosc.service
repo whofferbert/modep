@@ -1,0 +1,10 @@
+[Unit]
+Description=TouchOsc2Midi service
+After=pisound-hotspot.service
+
+[Service]
+ExecStart=/bin/bash /usr/local/modep/start_touchosc2midi.sh
+
+[Install]
+WantedBy=multi-user.target
+

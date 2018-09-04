@@ -188,6 +188,7 @@ export EXPORT_ROOTFS_DIR
 
 export LV2_DIR
 export LV2_ABS_DIR
+export RT_KERNEL_VERSION
 
 export PKG_CONFIG_DIR
 export PKG_CONFIG_LIBDIR
