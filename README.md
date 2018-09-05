@@ -1,8 +1,8 @@
-# modep-gen
+# modep
 
 _Tool used to create the MODEP images, based on [pi-gen](https://github.com/RPi-Distro/pi-gen) which is used to create the Raspbian images_
 
-The top of this document contains `modep-gen` specific information, the contents below [pi-gen](#pi-gen) section are provided as-is for `pi-gen`, most of that information is relevant to `modep-gen`.
+The top of this document contains `modep` specific information, the contents below [pi-gen](#pi-gen) section are provided as-is for `pi-gen`, most of that information is relevant to `modep`.
 
 ## MODEP Stages Overview:
 
