@@ -33,6 +33,16 @@ To install the required dependencies for pi-gen you should run:
 
 The file `depends` contains a list of tools needed. The format of this package is `<tool>[:<debian-package>]`.
 
+## Starting the Build
+
+After all the dependencies are installed, start the build by running:
+
+```
+./build-docker.sh
+```
+
+It may take a few hours before it completes.
+
 ## Build Config
 
 Upon execution, `build.sh` will source the file `config` in the current working directory. This bash shell fragment is intended to set needed environment variables.
