@@ -139,7 +139,7 @@ If you're working on a specific stage the recommended development process is as 
 ## Troubleshooting
     binfmt_misc
 
-Linux is able execute binaries from other architectures, meaning that it should be possible to make use of `pi-gen` on an x86_64 system, even though it will be running ARM binaries. This requires support from the `[binfmt_misc](https://en.wikipedia.org/wiki/Binfmt_misc)` kernel module.
+Linux is able execute binaries from other architectures, meaning that it should be possible to make use of `pi-gen` on an x86_64 system, even though it will be running ARM binaries. This requires support from the [`binfmt_misc`](https://en.wikipedia.org/wiki/Binfmt_misc) kernel module.
 You may see the following error:
 
     update-binfmts: warning: Couldn't load the binfmt_misc module.
