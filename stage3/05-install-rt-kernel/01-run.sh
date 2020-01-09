@@ -1,6 +1,9 @@
 #!/bin/bash -e
 
-wget https://github.com/BlokasLabs/rpi-kernel-rt/archive/${RT_KERNEL_VERSION}.tar.gz -O /tmp/${RT_KERNEL_VERSION}.tar.gz
+#kernel_source="BlokasLabs"
+kernel_source="whofferbert"
+
+wget https://github.com/$kernel_source/rpi-kernel-rt/archive/${RT_KERNEL_VERSION}.tar.gz -O /tmp/${RT_KERNEL_VERSION}.tar.gz
 
 # Remove regular kernel modules.
 rm -r ${ROOTFS_DIR}/lib/modules/*
